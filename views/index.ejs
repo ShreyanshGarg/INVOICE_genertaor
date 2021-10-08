@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="complete">
+
+
+    <hr class="hrTag" />
+    <div class="wrapper">
+      <h1 class="heading">TECHWEIRDO</h1>
+        <button type="submit" name="button" onclick="printDiv('complete')"  >PRINT</button>
+    </div>
+    <!-- invoice -->
+    <div class="wrapper">
+      <div class="flex">
+        <h2 style="padding-left: 117px; font-weight: lighter">Invoice</h2>
+        <p contentEditable="true" style="padding-left: 103px">
+          EXTRAPOLATE ADVISORS PRIVATE LIMITED <br />
+          PAN No - AAFCE2089P <br />
+          GSTIn - 19AAFCE2089P1ZY
+        </p>
+      </div>
+    </div>
+    <!-- contact -->
+    <div class="wrapper">
+      <div class="flex">
+        <p style="padding-left: 117px; color: #007dfe">
+          +918697749804 <br />
+          hello@techweirdo.in
+        </p>
+        <p style="padding-left: 36px; padding-top: 26px">Date: <%=date%></p>
+
+      </div>
+    </div>
+    <!-- address -->
+    <div class="wrapper">
+      <div class="flex">
+        <p style="padding-left: 117px; font-weight: bold; color: #707f9a">
+          28/2, E Block, Patuli <br />Kolkata - 700094
+        </p>
+        <p style="padding-left: 36px">
+          Invoice Number: TW/DS/21-22/Sep/01 <br />Project Title: Billing for
+          sprint 2
+        </p>
+      </div>
+    </div>
+    <!-- tables -->
+    <div class="wrapper2">
+      <table>
+        <tr>
+          <th style="background-color: #007dfe; color: white">HSN/SAC Code</th>
+          <th style="background-color: #007dfe; color: white">Description</th>
+          <th style="background-color: #007dfe; color: white">
+            Hours Utilised
+          </th>
+          <th style="background-color: #007dfe; color: white">Unit Price</th>
+          <th style="background-color: #007dfe; color: white">Cost</th>
+        </tr>
+
+
+  <% res.forEach(function(results){ %>
+<tr>
+<td><%=results.code%></td>
+<td><%=results.Item%></td>
+<td><%=results.unit%></td>
+<td><%=results.cost%> </td>
+<td>₹<%=results.cost * results.unit%> </td>
+</tr>
+<%})%>
+        <form  action="/" method="post">
+        <tr>
+          <td>
+          <input type="number" name="code" />
+          </td>
+          <td>
+            <input type="text" name="description" />
+          </td>
+
+          <td>          <input type="number" name="unit" />
+</td>
+      <td><input type="number" name="cost" />
+    </td>
+      <td></td>
+
+  <td> <button type="submit">ADD++</button></td>
+        </tr>
+
+  </form>
+
+        <tr class="border"></tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Subtotal</td>
+          <td>₹‎<%=total%>0</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>SGST@</td>
+          <td>9.00%</td>
+          <td>₹18,000.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>CGST@</td>
+          <td>9.00%</td>
+          <td>₹18,000.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>IGST@</td>
+          <td>0.00%</td>
+          <td>₹0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total</td>
+          <%if(total!=0){%>
+          <td style="font-weight: bold">₹<%=total+36000%></td>
+<%}%>
+
+
+
+
+
+
+        </tr>
+      </table>
+
+      <br />
+      <p style="font-weight: bold">
+        Make all cheques favouring to:
+        <span style="font-weight: lighter"
+          >Techweirdo Consultancy Private Limited
+        </span>
+      </p>
+      <p style="font-weight: bold">
+        Payable at:<span style="font-weight: lighter">ICICI Garia Branch</span>
+      </p>
+      <p style="font-weight: bold">
+        Bank Account:<span style="font-weight: lighter">034905003917</span>
+      </p>
+      <p style="font-weight: bold">
+        IFSC Code:<span style="font-weight: lighter">ICIC0000349</span>
+      </p>
+      <p style="font-weight: bold">
+        GSTN Code:<span style="font-weight: lighter">19AAHCT4895J1ZJ</span>
+      </p>
+    </div>
+    <hr class="hrTag" />
+
+
+      </div>
+  </body>
+</html>
