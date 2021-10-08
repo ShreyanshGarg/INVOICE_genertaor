@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-mongoose.connect("mongodb://localhost:27017/invoiceDB", {
+mongoose.connect("mongodb+srv://sarthak:saxena@cluster0.tptcw.mongodb.net/TechweirdoTask?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
